@@ -106,7 +106,7 @@ public class ImageAdapter extends PagerAdapter {
         @Override
         protected void onPostExecute(List<Bitmap> result) {
 //            bmImage.setImageBitmap(result);
-            System.out.println("st. slik: " + result.size());
+            System.out.println("število. slik: " + result.size());
         }
     }
 }
