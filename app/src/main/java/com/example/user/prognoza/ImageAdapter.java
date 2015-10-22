@@ -35,9 +35,9 @@ public class ImageAdapter extends PagerAdapter {
 //            R.drawable.three
 //    };
 
-    String[] slike = new String[] {"http://vreme.kilogramz.com/web_uv10_HRv8_03.gif",
-            "http://vreme.kilogramz.com/prognoza_veter_20151020_03.gif",
-            "http://vreme.kilogramz.com/prognoza_veter_20151020_06.gif"};
+    String[] slike = new String[] {"http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_18_e.gif",
+            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_21_e.gif",
+            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_24_e.gif"};
     AsyncTask<String, Void, List<Bitmap>> slikeTask = new DownloadImageTask().execute(slike);
 
     ImageAdapter(Context context){
