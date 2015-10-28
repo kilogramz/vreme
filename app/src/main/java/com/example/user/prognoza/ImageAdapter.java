@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -38,7 +40,9 @@ public class ImageAdapter extends PagerAdapter {
     String[] slike = new String[] {"http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_18_e.gif",
             "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_21_e.gif",
             "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_24_e.gif"};
-    AsyncTask<String, Void, List<Bitmap>> slikeTask = new DownloadImageTask().execute(slike);
+//            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_27_e.gif",
+//            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_30_e.gif"};
+//    AsyncTask<String, Void, List<Bitmap>> slikeTask = new DownloadImageTask().execute(slike);
 
     ImageAdapter(Context context){
         this.context=context;
@@ -47,7 +51,9 @@ public class ImageAdapter extends PagerAdapter {
     @Override
     public int getCount() {
         try {
-            return slikeTask.get().size();
+//            if(slikeTask.get().size() != 4)
+//                System.out.println("krneki velikost ni 4 ampak: " + slikeTask.get().size());
+            return slike.length;
         } catch(Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
@@ -69,7 +75,10 @@ public class ImageAdapter extends PagerAdapter {
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
         try {
-                imageView.setImageBitmap(slikeTask.get().get(position));
+//                imageView.setImageBitmap(slikeTask.get().get(position));
+            Picasso.with(context).load(slike[position]).into(imageView);
+//                System.out.println("size = " + slikeTask.get().size());
+//                System.out.println("position je: " + position);
         } catch(Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
