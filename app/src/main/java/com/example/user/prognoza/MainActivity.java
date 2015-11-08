@@ -1,5 +1,6 @@
 package com.example.user.prognoza;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,9 +20,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        ImageAdapter adapter = new ImageAdapter(this);
-        viewPager.setAdapter(adapter);
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -53,5 +52,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /** Called when the user clicks the prognoza.hr button */
+    public void showPrognoza(View view) {
+        Intent intent = new Intent(this, ImageSwipeActivity.class);
+        startActivity(intent);
     }
 }

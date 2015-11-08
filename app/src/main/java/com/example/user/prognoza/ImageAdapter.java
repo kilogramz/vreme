@@ -39,9 +39,9 @@ public class ImageAdapter extends PagerAdapter {
 
     String[] slike = new String[] {"http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_18_e.gif",
             "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_21_e.gif",
-            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_24_e.gif"};
-//            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_27_e.gif",
-//            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_30_e.gif"};
+            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_24_e.gif",
+            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_27_e.gif",
+            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_30_e.gif"};
 //    AsyncTask<String, Void, List<Bitmap>> slikeTask = new DownloadImageTask().execute(slike);
 
     ImageAdapter(Context context){
@@ -83,7 +83,7 @@ public class ImageAdapter extends PagerAdapter {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
-        ((ViewPager) container).addView(imageView, position);
+        ((ViewPager) container).addView(imageView, 0);
         return imageView;
     }
 
