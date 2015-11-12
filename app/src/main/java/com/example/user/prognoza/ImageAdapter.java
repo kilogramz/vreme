@@ -37,12 +37,11 @@ public class ImageAdapter extends PagerAdapter {
 //            R.drawable.three
 //    };
 
-    String[] slike = new String[] {"http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_18_e.gif",
-            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_21_e.gif",
-            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_24_e.gif",
-            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_27_e.gif",
-            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_30_e.gif"};
+//    String[] slike = new String[] {"http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_03_e.gif"};
+//            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_06_e.gif",
+//            "http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_09_e.gif"
 //    AsyncTask<String, Void, List<Bitmap>> slikeTask = new DownloadImageTask().execute(slike);
+
 
     ImageAdapter(Context context){
         this.context=context;
@@ -50,15 +49,11 @@ public class ImageAdapter extends PagerAdapter {
     }
     @Override
     public int getCount() {
-        try {
 //            if(slikeTask.get().size() != 4)
 //                System.out.println("krneki velikost ni 4 ampak: " + slikeTask.get().size());
-            return slike.length;
-        } catch(Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-            return 0;
-        }
+//            return slike.length;
+            return Integer.valueOf(100);
+
     }
 
     @Override
@@ -75,10 +70,14 @@ public class ImageAdapter extends PagerAdapter {
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
         try {
-//                imageView.setImageBitmap(slikeTask.get().get(position));
-            Picasso.with(context).load(slike[position]).into(imageView);
+            if((position + 1) < 4) {
+               Picasso.with(context).load("http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_0" + ((position + 1) * 3) + "_e.gif").into(imageView);
+            } else {
+                Picasso.with(context).load("http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_" + ((position + 1) * 3) + "_e.gif").into(imageView);
+            }
 //                System.out.println("size = " + slikeTask.get().size());
-//                System.out.println("position je: " + position);
+                System.out.println("position je: " + position);
+                System.out.println("http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_" + (position * 3) + "_e.gif");
         } catch(Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
