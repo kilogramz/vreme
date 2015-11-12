@@ -76,8 +76,8 @@ public class ImageAdapter extends PagerAdapter {
                 Picasso.with(context).load("http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_" + ((position + 1) * 3) + "_e.gif").into(imageView);
             }
 //                System.out.println("size = " + slikeTask.get().size());
-                System.out.println("position je: " + position);
-                System.out.println("http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_" + (position * 3) + "_e.gif");
+//                System.out.println("position je: " + position);
+//                System.out.println("http://vreme.kilogramz.com/15-10-22/prognoza.hr/aladinHR/web_uv10_HRv8_" + (position * 3) + "_e.gif");
         } catch(Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
@@ -114,7 +114,7 @@ public class ImageAdapter extends PagerAdapter {
         @Override
         protected void onPostExecute(List<Bitmap> result) {
 //            bmImage.setImageBitmap(result);
-            System.out.println("število. slik: " + result.size());
+//            System.out.println("število. slik: " + result.size());
         }
     }
 }
